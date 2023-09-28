@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "title": "producto1",
+        "description": "description2.1",
+        "price": 25,
+        "code": "c1",
+        "stock": 15,
+        "category": "category1",
+        "status": true
+    }
+]
