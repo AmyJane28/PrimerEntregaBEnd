@@ -21,7 +21,7 @@ router.get('/:idCart',async(req,res)=> {
         if (!cart) {
             return res.status(404).json({message: "No cart found" })
         }
-        res.status(200).json({message: "Products found",cart})
+        res.status(200).json({message: "Products found", products: cart.products})
     } catch (error) {
         res.status(500).json({message: error.message})
     }
@@ -30,12 +30,10 @@ router.get('/:idCart',async(req,res)=> {
 
 router.post(':idCart/product/:idProduct',async(req,res)=>{
 const {idCart, idProduct} = req.params
+    const {quantity} = req.body
     try {
-        const cart = await cartsManager.addProductCart(+idCart, +idProduct)
-        if (!cart) {
-            return res.status(404).json({message: "No cart found with this id" })
-        }
-        res.status(200).json({message: "Product found", cart})
+        const cart = await cartsManager.addProductCart(+idCart, +idProduct, quantity)
+        res.status(200).json({message: "Product added successfully"})
     } catch (error) {
         res.status(500).json({message: error.message})
     }
