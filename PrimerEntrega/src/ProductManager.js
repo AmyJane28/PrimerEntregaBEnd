@@ -25,6 +25,7 @@ class ProductManager {
     //Método para agregar productos al array inicial
     async addProduct(product) {
         try {
+            const {title, description, price, thumbnail, code, stock} = product
             //Buscamos el arreglo con el método get
             const products = await this.getProduct({})
 
