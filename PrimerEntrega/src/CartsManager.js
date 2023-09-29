@@ -1,5 +1,5 @@
 import { existsSync, promises } from 'fs';
-import { productsManager } from './ProductManager';
+import { productsManager } from './ProductManager.js';
 
 const path = 'Carts.json';
 
